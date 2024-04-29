@@ -30,9 +30,13 @@ public class Table {
 	}
 	public void bookTable(int tableNo, int numberOfSeats)
 	{
-		if (isAvailable == false || this.numberOfSeats < numberOfSeats)
+		if (isAvailable == false )
 		{
-			System.out.println("Sorry, this table is not available for now, Choose another table.");
+			System.out.println("Sorry, this table is not available for now, Choose another table, please.");
+		}
+		else if ( this.numberOfSeats < numberOfSeats) 
+		{
+			System.out.println("Sorry, this table does not have enough chairs for you, Choose another table.");
 		}
 		else 
 		{
