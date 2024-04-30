@@ -5,7 +5,7 @@ public class Customer extends Person {
     private int loyalty_points;
     private Table table;
     private MenuItems menu;
-    private Order order;
+   // private Order order;
 	public Customer(String name,String num,String email) {
 		super(name,num,email);
 		this.customer_ID = customerIdAdder++;
@@ -20,20 +20,17 @@ public class Customer extends Person {
 	    public Table getTable() {
 	        return this.table;
 	    }
-	    public void setMenu(MenuItems menu) {
-	        this.menu = menu;
-	    }
 
 	    public MenuItems getMenu() {
 	        return this.menu;
 	    }
 
-	    public void setOrder(Order order) {
-	        this.order = order;
-	    }
-	    public Order getOrder() {
-	        return this.order;
-	    }
+//	    public void setOrder(Order order) {
+//	        this.order = order;
+//	    }
+//	    public Order getOrder() {
+//	        return this.order;
+//	    }
 	 public int getID()
 	 {
 		 return this.customer_ID;
