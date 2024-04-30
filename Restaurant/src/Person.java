@@ -8,7 +8,6 @@ public Person(String name,String contactNumber,String email) {
 	
 	this.email=email;
 	this.name=name;
-	setEmail(email);
     setContactNumber(contactNumber);
 }
 public abstract String identifyRole();
