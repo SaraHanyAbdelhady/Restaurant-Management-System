@@ -54,4 +54,10 @@ public class MainDishes extends MenuItems {
 		MainDishes sideDishes = new MainDishes("Side dishes",65,4.2,"You can choose from french fries, sauted vegies, white rice or mashed potatoes as a side to your dish.");
 		super.getItems().add(sideDishes);	
 	}
+	
+	public static void initMainDishes() {
+		 MainDishes mainDishes = new MainDishes();
+			mainDishes.setMainDishes();
+		
+	}
 }

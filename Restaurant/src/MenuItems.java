@@ -6,6 +6,7 @@ public abstract class MenuItems {
 	private double rate;
 	private double price;
 	private ArrayList<MenuItems> items = new ArrayList<>(); 
+	private ArrayList<MenuItems> specialityItems = new ArrayList<>();
 	
 	
 	public MenuItems() {
@@ -17,7 +18,11 @@ public abstract class MenuItems {
 		this.rate = rate;
 		this.price = price;
 	}
-	
+	public MenuItems(String itemName, double price) {
+		super();
+		this.itemName = itemName;
+		this.price = price;
+	}
 	public String getItemName() {
 		return itemName;
 	}
@@ -41,7 +46,30 @@ public abstract class MenuItems {
 		return this.items;
 	}
    public abstract String  description(MenuItems I);
+   
+   public void addMenuItems(MenuItems newItem) {
+	   items.add(newItem);
+   }
 	
+   public void removeMenuItems(MenuItems oldItem) {
+	   items.remove(oldItem);
+   }
+   
+   public void editMenuItems(MenuItems editItem, double newPrice) {
+	   int pos=items.indexOf(editItem);
+	   items.get(pos).setPrice(newPrice);
+   }
+   
+   public void setSpecialityDishes(){
+	   for(int i=0; i<items.size(); i++) {
+		   if(items.get(i).getRate()>=4.5) specialityItems.add(items.get(i));
+	   }
+   }
+   
+   
+   
+   
+   
 	
 	
 	

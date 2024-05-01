@@ -10,5 +10,11 @@ public class Restaurant {
         Table t6 = new Table (6,6);
         Table t7 = new Table (7,4);
         Table t8 = new Table (8,3);
+        
+        // Menu driver methods
+        
+        MainDishes.initMainDishes();
+        Desserts.initDesserts();;
+        Beverages.initBeverages();
     }   
 }

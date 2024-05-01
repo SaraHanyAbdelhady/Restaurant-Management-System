@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class order {
+public class Order {
     
     
-	public order() {
+	public Order() {
 		System.out.println("If you want to know our offers Enter yes");
 		System.out.println("If you don't Enter no");
 		Scanner input1 = new Scanner(System.in);
