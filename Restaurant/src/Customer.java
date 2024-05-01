@@ -2,10 +2,10 @@
 public class Customer extends Person {
 	private static int customerIdAdder=1;
     private int customer_ID;
-    private int loyalty_points;
-    private Table table;
-    private MenuItems menu;
-   // private Order order;
+    private int loyalty_points=0;
+//    private Table table;
+//    private MenuItems menu;
+//    private Order order;
 	public Customer(String name,String num,String email) {
 		super(name,num,email);
 		this.customer_ID = customerIdAdder++;
@@ -13,18 +13,18 @@ public class Customer extends Person {
 	public void setPoints(int Points) { 
 		this.loyalty_points=Points;
 	}
-	 public void setTable(Table table) {
-	        this.table = table;
-	    }
-
-	    public Table getTable() {
-	        return this.table;
-	    }
-
-	    public MenuItems getMenu() {
-	        return this.menu;
-	    }
-
+//	 public void setTable(Table table) {
+//	        this.table = table;
+//	    }
+//
+//	    public Table getTable() {
+//	        return this.table;
+//	    }
+//
+//	    public MenuItems getMenu() {
+//	        return this.menu;
+//	    }
+//
 //	    public void setOrder(Order order) {
 //	        this.order = order;
 //	    }
@@ -40,7 +40,7 @@ public class Customer extends Person {
 		 return this.loyalty_points;
 	 }
 	 
-	public void addLoyaltyPoints(int Points) {
+	public void addLoyaltyPoints(int Points) {   //lw 3rfna 3la 7asab el fatoora momken ad5l points 
 		//for every order made by the customer there is a 50 loyalty points  added to his profile
 		this.loyalty_points+=Points;
 	}

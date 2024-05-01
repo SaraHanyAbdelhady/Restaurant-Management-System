@@ -3,6 +3,7 @@ public class Table {
 	private int tableNo;
 	private int numberOfSeats;
 	private Boolean isAvailable;
+	//list of tables
 	
 	public Table(int tableNo, int numberOfSeats)
 	{
@@ -28,7 +29,7 @@ public class Table {
 	public void setIsAvailable(Boolean isAvailable) {
 		this.isAvailable = isAvailable;
 	}
-	public void bookTable(int tableNo, int numberOfSeats)
+	public void bookTable(int tableNo, int numberOfSeats) //available interface method parameter type object for menuItems and Table
 	{
 		if (isAvailable == false )
 		{

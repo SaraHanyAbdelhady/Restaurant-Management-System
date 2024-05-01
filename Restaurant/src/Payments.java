@@ -8,6 +8,7 @@ public class Payments {
 	
 	
 	
+	
 	Payments(){
 		
 	}
@@ -32,8 +33,6 @@ public class Payments {
 	public int getTableNumber() {
 		return tableNumber;
 	}
-	
-
-	
+	//availability after payment=1
 	
 }

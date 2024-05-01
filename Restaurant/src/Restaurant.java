@@ -14,7 +14,9 @@ public class Restaurant {
         // Menu driver methods
         
         MainDishes.initMainDishes();
-        Desserts.initDesserts();;
+        Desserts.initDesserts();
         Beverages.initBeverages();
+        
+        //addLoyaltyPoints
     }   
 }
