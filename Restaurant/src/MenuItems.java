@@ -1,26 +1,28 @@
+import java.util.*;
 
-public class MenuItems {
+public abstract class MenuItems {
 	
-	private String item;
+	private String itemName;
 	private double rate;
 	private double price;
+	private ArrayList<MenuItems> items = new ArrayList<>(); 
 	
 	
 	public MenuItems() {
 	}
 	
-	public MenuItems(String item, double rate, double price) {
+	public MenuItems(String itemName, double price, double rate) {
 		super();
-		this.item = item;
+		this.itemName = itemName;
 		this.rate = rate;
 		this.price = price;
 	}
 	
-	public String getItem() {
-		return item;
+	public String getItemName() {
+		return itemName;
 	}
-	public void setItem(String item) {
-		this.item = item;
+	public void setItem(String itemName) {
+		this.itemName = itemName;
 	}
 	public double getRate() {
 		return rate;
@@ -34,6 +36,12 @@ public class MenuItems {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	public ArrayList<MenuItems> getItems(){
+		return this.items;
+	}
+   public abstract String  description(MenuItems I);
+	
 	
 	
 	
