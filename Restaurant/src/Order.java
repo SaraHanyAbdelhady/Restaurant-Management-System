@@ -5,7 +5,7 @@ public class order {
     
 	public order() {
 		System.out.println("If you want to know our offers Enter yes");
-		System.out.println("If you don't enter no");
+		System.out.println("If you don't Enter no");
 		Scanner input1 = new Scanner(System.in);
 		String answer1 = input1.nextLine();
 		if (answer1=="yes")
