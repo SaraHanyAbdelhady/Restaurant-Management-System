@@ -1,4 +1,5 @@
-
+//fadel array list
+//interface available
 public class Table {
 	private int tableNo;
 	private int numberOfSeats;

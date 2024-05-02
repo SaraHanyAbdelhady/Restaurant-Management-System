@@ -3,16 +3,12 @@ public class RestaurantManager extends Person {
 	private int employeeId=1;
     private Table table;
     private MenuItems menu;
-   // private Order order;
-    
-//	 public void  addMenuItem(String Item); lessa msh 3arfa ha3mlhom implementation ezay
-//	 public void removeMenuItem(String Item);
-//	 public void modifyMenuItem(String Item);
+  
 	
 	public RestaurantManager(String name,String num,String email) {
 		super(name,num,email);
 	}
-	
+	//add/remove array of tables method
 	 public void setTable(Table table) {
 	        this.table = table;
 	    }
@@ -25,14 +21,20 @@ public class RestaurantManager extends Person {
 	 {
 		 return this.employeeId;
 	 }
-	
+	  public void addMenuItems(MenuItems newItem) {
+		 newItem.getItems().add(newItem);
+	   }
+		
+	   public void removeMenuItems(MenuItems oldItem) {
+		   oldItem.getItems().remove(oldItem);
+	   }
+	   
+	   public void editMenuItems(MenuItems editItem, double newPrice) {
+		   int pos=menu.getItems().indexOf(editItem);
+		   menu.getItems().get(pos).setPrice(newPrice);
+	   }
 
-//	    public void setOrder(Order order) {
-//	        this.order = order;
-//	    }
-//	    public Order getOrder() {
-//	        return this.order;
-//	    }
+
 	
 	@Override
 	public  String identifyRole() {

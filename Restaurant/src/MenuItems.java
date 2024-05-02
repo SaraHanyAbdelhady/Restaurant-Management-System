@@ -1,5 +1,5 @@
 import java.util.*;
-
+//fadel display w sort w implement l comparable
 public abstract class MenuItems {
 	
 	private String itemName;
@@ -45,20 +45,7 @@ public abstract class MenuItems {
 	public ArrayList<MenuItems> getItems(){
 		return this.items;
 	}
-   public abstract String  description(MenuItems I);
-   
-   public void addMenuItems(MenuItems newItem) {
-	   items.add(newItem);
-   }
-	
-   public void removeMenuItems(MenuItems oldItem) {
-	   items.remove(oldItem);
-   }
-   
-   public void editMenuItems(MenuItems editItem, double newPrice) {
-	   int pos=items.indexOf(editItem);
-	   items.get(pos).setPrice(newPrice);
-   }
+   public abstract String  description(MenuItems I); // dih hattshal w hyt7t bdlha display 
    
    public void setSpecialityDishes(){
 	   for(int i=0; i<items.size(); i++) {
