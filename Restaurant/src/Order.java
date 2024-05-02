@@ -1,9 +1,10 @@
 import java.util.*;
 
 public class Order {
-    
+ 
     
 	public Order() {
+		//table no m3a el table
 		System.out.println("If you want to know our offers Enter yes");
 		System.out.println("If you don't Enter no");
 		Scanner input1 = new Scanner(System.in);

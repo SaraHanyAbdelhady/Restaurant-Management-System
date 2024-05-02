@@ -3,7 +3,7 @@ public class Table {
 	private int tableNo;
 	private int numberOfSeats;
 	private Boolean isAvailable;
-	//list of tables
+//init tables
 	
 	public Table(int tableNo, int numberOfSeats)
 	{

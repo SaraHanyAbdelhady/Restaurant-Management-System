@@ -47,7 +47,7 @@ public class Customer extends Person {
 	
 @Override
 public  String identifyRole() {
-	return "Customer";
+	return "Customer"+ this.customer_ID;
 }
 
 }
