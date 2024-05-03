@@ -1,11 +1,16 @@
-//fadel array list
-//interface available
-public class Table {
+
+import java.util.ArrayList;
+
+public class Table implements Available{
 	private int tableNo;
 	private int numberOfSeats;
 	private Boolean isAvailable;
-//init tables
-	
+	private ArrayList<Table> tables = new ArrayList<>(); 
+
+	public Table()
+	{
+		
+	}
 	public Table(int tableNo, int numberOfSeats)
 	{
 		this.tableNo = tableNo;
@@ -30,13 +35,17 @@ public class Table {
 	public void setIsAvailable(Boolean isAvailable) {
 		this.isAvailable = isAvailable;
 	}
-	public void bookTable(int tableNo, int numberOfSeats) //available interface method parameter type object for menuItems and Table
+	public ArrayList<Table> getTables(){
+		return this.tables;
+	}
+	@Override
+	public void available(int numberOfCustomers) //available interface method parameter type object for menuItems and Table
 	{
-		if (isAvailable == false )
+		if (this.isAvailable == false )
 		{
 			System.out.println("Sorry, this table is not available for now, Choose another table, please.");
 		}
-		else if ( this.numberOfSeats < numberOfSeats) 
+		else if ( this.numberOfSeats < numberOfCustomers) 
 		{
 			System.out.println("Sorry, this table does not have enough chairs for you, Choose another table.");
 		}
@@ -48,6 +57,34 @@ public class Table {
 		
 		
 	}
+public void  setTables(){
+		
+		Table t1 = new Table (1,3);
+		Table t2 = new Table (2,4);
+  		Table t3 = new Table (3,5);
+  		Table t4 = new Table (4,7);
+  		Table t5 = new Table (5,5);
+  		Table t6 = new Table (6,6);
+  		Table t7 = new Table (7,4);
+  		Table t8 = new Table (8,3);
+  		this.getTables().add(t1);
+		this.getTables().add(t2);
+		this.getTables().add(t3);
+		this.getTables().add(t4);
+		this.getTables().add(t5);
+		this.getTables().add(t6);
+		this.getTables().add(t7);
+		this.getTables().add(t8);
+		
+		
+	}
+	
+	public static void initTables() {
+		Table tables = new Table();
+		tables.setTables();
+	
+	}
+
 	
 	
 	

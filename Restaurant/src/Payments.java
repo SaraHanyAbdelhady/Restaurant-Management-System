@@ -3,7 +3,7 @@
 public class Payments {
 	//private int tableNumber;
 	protected double billValue;
-	private int customerId; //hana7tago 3la 7sb el loyalty points
+	//private int customerId; //hana7tago 3la 7sb el loyalty points
 	//private String wayOfPayment;
 
 
