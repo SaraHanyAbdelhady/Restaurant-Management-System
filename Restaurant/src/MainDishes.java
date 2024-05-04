@@ -14,12 +14,10 @@ public class MainDishes extends MenuItems {
 		this.description = description;
 	}
 	
-	public String getDescription() {
-		return this.description;
-	}
+	
 	@Override 
 	public String description(MenuItems I) {
-		return ((MainDishes) I).getDescription();
+		return ((MainDishes) I).description;
 	}
 	
 	public void  setMainDishes(){

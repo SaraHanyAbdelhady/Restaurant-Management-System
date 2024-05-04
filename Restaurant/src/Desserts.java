@@ -14,12 +14,10 @@ public class Desserts extends MenuItems {
 		this.dessertDescription = dessertDescription;
 	}
 	
-	public String getDessertDescription() {
-		return this.dessertDescription;
-	}
+	
 	@Override 
 	public String description(MenuItems I) {
-		return ((Desserts) I).getDessertDescription();
+		return ((Desserts) I).dessertDescription;
 	}
 	
 	public void  setDesserts(){

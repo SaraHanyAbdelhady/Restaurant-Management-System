@@ -8,7 +8,5 @@ public class Restaurant {
         MainDishes.initMainDishes();
         Desserts.initDesserts();
         Beverages.initBeverages();
-        
-        //addLoyaltyPoints
     }   
 }

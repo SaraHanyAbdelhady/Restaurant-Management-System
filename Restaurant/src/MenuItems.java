@@ -13,20 +13,18 @@ public abstract class MenuItems {
 	}
 	
 	public MenuItems(String itemName, double price, double rate) {
-		super();
 		this.itemName = itemName;
 		this.rate = rate;
 		this.price = price;
 	}
 	public MenuItems(String itemName, double price) {
-		super();
 		this.itemName = itemName;
 		this.price = price;
 	}
 	public String getItemName() {
 		return itemName;
 	}
-	public void setItem(String itemName) {
+	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
 	public double getRate() {
@@ -45,11 +43,29 @@ public abstract class MenuItems {
 	public ArrayList<MenuItems> getItems(){
 		return this.items;
 	}
+<<<<<<< Updated upstream
    public abstract String  description(MenuItems I); // dih hattshal w hyt7t bdlha display 
+=======
+   public abstract String  description(MenuItems I);
+   
+   public void addMenuItems(MenuItems newItem) { // moved to manager control
+	   items.add(newItem);
+   }
+	
+   public void removeMenuItems(MenuItems oldItem) { // nfs el haga
+	   items.remove(oldItem);
+   }
+   
+   public void editMenuItems(MenuItems editItem, double newPrice) { // nfs el haga
+	   int pos=items.indexOf(editItem);
+	   items.get(pos).setPrice(newPrice);
+   }
+   // DISPLAY
+>>>>>>> Stashed changes
    
    public void setSpecialityDishes(){
 	   for(int i=0; i<items.size(); i++) {
-		   if(items.get(i).getRate()>=4.5) specialityItems.add(items.get(i));
+		   if(items.get(i).getRate()>=4.5) specialityItems.add(items.get(i)); //MainDishes list
 	   }
    }
    

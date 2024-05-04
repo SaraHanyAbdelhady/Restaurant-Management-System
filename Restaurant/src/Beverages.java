@@ -20,13 +20,11 @@ Beverages (String itemName, double price, String dessertDescription) {
 	this.beverageDescription = dessertDescription;
 }
 	
-	public String getBeverageDescription() {
-		return this.beverageDescription;
-	}
+	
 	
 	@Override 
 	public String description(MenuItems I) {
-		return ((Beverages) I).getBeverageDescription();
+		return ((Beverages) I).beverageDescription;
 	}
 	
 public void  setBeverages(){
