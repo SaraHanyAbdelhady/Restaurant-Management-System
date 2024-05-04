@@ -14,12 +14,20 @@ public class Desserts extends MenuItems {
 		this.dessertDescription = dessertDescription;
 	}
 	
-	
-	@Override 
-	public String description(MenuItems I) {
-		return ((Desserts) I).dessertDescription;
+
+	public String getDessertDescription() {
+		return dessertDescription;
+	}
+
+	public void setDessertDescription(String dessertDescription) {
+		this.dessertDescription = dessertDescription;
 	}
 	
+	@Override
+	public  String  display() {
+		return "Item Name: " + super.getItemName() + "\n Price: " + super.getPrice() + "\n Rate: " + super.getRate() + "\n Description: " + getDessertDescription();
+	}
+
 	public void  setDesserts(){
 		
 		MenuItems moltencake = new Desserts("Molten cake",75,4.5,"Your favorite molten cake served with vanilla icecream");

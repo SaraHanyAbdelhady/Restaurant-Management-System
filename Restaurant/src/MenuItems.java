@@ -1,4 +1,6 @@
 import java.util.*;
+
+
 //fadel display w sort w implement l comparable
 public abstract class MenuItems {
 	
@@ -7,6 +9,7 @@ public abstract class MenuItems {
 	private double price;
 	private ArrayList<MenuItems> items = new ArrayList<>(); 
 	private ArrayList<MenuItems> specialityItems = new ArrayList<>();
+	
 	
 	
 	public MenuItems() {
@@ -43,31 +46,18 @@ public abstract class MenuItems {
 	public ArrayList<MenuItems> getItems(){
 		return this.items;
 	}
-<<<<<<< Updated upstream
-   public abstract String  description(MenuItems I); // dih hattshal w hyt7t bdlha display 
-=======
-   public abstract String  description(MenuItems I);
-   
-   public void addMenuItems(MenuItems newItem) { // moved to manager control
-	   items.add(newItem);
-   }
-	
-   public void removeMenuItems(MenuItems oldItem) { // nfs el haga
-	   items.remove(oldItem);
-   }
-   
-   public void editMenuItems(MenuItems editItem, double newPrice) { // nfs el haga
-	   int pos=items.indexOf(editItem);
-	   items.get(pos).setPrice(newPrice);
-   }
-   // DISPLAY
->>>>>>> Stashed changes
+
+   public abstract String  display(); // dih hattshal w hyt7t bdlha display 
+ 
+  
    
    public void setSpecialityDishes(){
 	   for(int i=0; i<items.size(); i++) {
-		   if(items.get(i).getRate()>=4.5) specialityItems.add(items.get(i)); //MainDishes list
+		   if(items.get(i).getRate()>=4.5) specialityItems.add(items.get(i));
 	   }
    }
+	   
+	   
    
    
    

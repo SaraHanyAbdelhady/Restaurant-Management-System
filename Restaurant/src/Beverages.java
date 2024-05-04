@@ -13,20 +13,26 @@ Beverages (String itemName, double price, double rate, String dessertDescription
 		
 		this.beverageDescription = dessertDescription;
 	}
-Beverages (String itemName, double price, String dessertDescription) {
+Beverages (String itemName, double price, String beverageDescription) {
 	
 	super(itemName, price);
 	
-	this.beverageDescription = dessertDescription;
+	this.beverageDescription = beverageDescription;
 }
 	
 	
-	
-	@Override 
-	public String description(MenuItems I) {
-		return ((Beverages) I).beverageDescription;
-	}
-	
+public String getBeverageDescription() {
+	return beverageDescription;
+}
+public void setBeverageDescription(String beverageDescription) {
+	this.beverageDescription = beverageDescription;
+}
+
+@Override
+public  String  display() {
+	return "Item Name: " + super.getItemName() + "\n Price: " + super.getPrice() + "\n Rate: " + super.getRate() + "\n Description: " + getBeverageDescription();
+}
+
 public void  setBeverages(){
 		
 		MenuItems specialityHotChocolate = new Beverages("Speciality Hot Chocolate",75,5,"Hot chocolate made from the finest cocoa products served with marshamellos and whipped cream.");
