@@ -1,4 +1,4 @@
-
+package application;
 public class RestaurantManager extends Person {
 	private int employeeId=1;
     private Table table;

@@ -1,3 +1,4 @@
+package application;
 //import java.util.ArrayList;
 
 public class RestaurantOld {
@@ -82,8 +83,8 @@ public class RestaurantOld {
 //		  mainDishesItems.add(lasagna);
 //		  mainDishesItems.add(Ravioli);
 //		  mainDishesItems.add(sideDishes);
+	
 //		  mainDishesItems.sort();
-
 //    	  System.out.println("Menu:");
 //	      mainDishesItems.display();
 

@@ -1,3 +1,5 @@
+package application;
+
 //5ls
 public class Beverages extends MenuItems {
 	

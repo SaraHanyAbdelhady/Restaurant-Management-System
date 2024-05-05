@@ -1,3 +1,4 @@
+package application;
 
 public class Credit extends Payments {
 	private double percent;

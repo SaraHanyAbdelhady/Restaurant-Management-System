@@ -1,3 +1,4 @@
+package application;
 import java.util.List;
 //process payment
 public class Waiter extends Person{

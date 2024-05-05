@@ -1,3 +1,5 @@
+package application;
+
 //5ls momken fadel loyalty
 public class Customer extends Person {
 	private static int customerIdAdder=1;
