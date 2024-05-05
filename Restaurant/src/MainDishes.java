@@ -33,8 +33,16 @@ public class MainDishes extends MenuItems implements Comparable<MainDishes> {
 	
 	@Override
 	public  String  display() {
+		
 		return "Item Name: " + super.getItemName() + "\n Price: " + super.getPrice() + "\n Rate: " + super.getRate() + "\n Description: " + getDescription();
-	}
+		}
+	//public  void  display() {
+	//	for (MainDishes item : mainDishesItems) 
+    //        System.out.println("Item Name: " + item.getItemName() +
+    //        					"\n Price: " + item.getPrice() + 
+    //        					"\n Rate: " + item.getRate() + 
+    //        					"\n Description: " + item.getDescription() );
+	//}
 
 	public void  setMainDishes(){
 		
@@ -95,9 +103,12 @@ public class MainDishes extends MenuItems implements Comparable<MainDishes> {
 	   // sorting 
 	   
 	   public void sort(){
-		   MainDishes[] arr1 = new MainDishes [mainDishesItems.size()];
-		   Arrays.sort(mainDishesItems.toArray(arr1));
-		   sortedMainDishesItems = new ArrayList<>(Arrays.asList(arr1));
+		  MainDishes[] arr1 = new MainDishes [mainDishesItems.size()];
+		  Arrays.sort(mainDishesItems.toArray(arr1));
+		  sortedMainDishesItems = new ArrayList<>(Arrays.asList(arr1));
+		 //Collections.sort(mainDishesItems);
+		 //sortedMainDishesItems = mainDishesItems;
+
 	   }
 	   
 	   

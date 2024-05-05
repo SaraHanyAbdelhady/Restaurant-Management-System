@@ -46,7 +46,8 @@ public class RestaurantOld {
 //		  MenuItems sparklingWater = new Beverages("Sparkling Water",10,"600 ml mineral sparkling water. It is also available with different flavors with extra 5 EGP fees.");
 //		  MenuItems freshJuices = new Beverages("Fresh Juices",10,4.5,"You can choose from Mango, Strawberry, Kiwi, Apple, Pineapple, Lemon, and watermelon");
 
-//  	  ArrayList<MenuItems> items = new ArrayList<>(); 
+
+//		  ArrayList<MenuItems> items = new ArrayList<>();
 //		  items.add(specialityPasta);
 //	  	  items.add(specialityPizza);
 //	  	  items.add(specialitySandwich);
@@ -70,5 +71,21 @@ public class RestaurantOld {
 //		  items.add(sparklingWater);
 //		  items.add(freshJuices);
 		
+//  	  ArrayList<MenuItems> mainDishesItems = new ArrayList<>();	
+//		  mainDishesItems.add(specialityPasta);
+//		  mainDishesItems.add(specialityPizza);
+//		  mainDishesItems.add(specialitySandwich);
+//		  mainDishesItems.add(Risotto);
+//		  mainDishesItems.add(Hamburger);
+//		  mainDishesItems.add(steak);
+//		  mainDishesItems.add(chicken);
+//		  mainDishesItems.add(lasagna);
+//		  mainDishesItems.add(Ravioli);
+//		  mainDishesItems.add(sideDishes);
+//		  mainDishesItems.sort();
+
+//    	  System.out.println("Menu:");
+//	      mainDishesItems.display();
+
 //    }
 }
