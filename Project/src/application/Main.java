@@ -53,6 +53,9 @@ public class Main extends Application {
 		try {
 			
 			GridPane gridPane = new GridPane();
+			tfName.setPromptText("Name");
+			tfContactNumber.setPromptText("Phone Number");
+			gridPane.setPadding(new Insets(11,12,13,14));
 			gridPane.setHgap(5);
      		gridPane.setVgap(5);
 			gridPane.add(new Label("Your information"), 0, 0);
