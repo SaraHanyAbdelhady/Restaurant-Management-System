@@ -1,1 +1,12 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#menu {
+    -fx-border-width: 2;
+    -fx-border-color: #FFE4C4;
+    -fx-background-color: #FFDAB9; /* Default background color */
+     
+}
+
+/* Hover effect: Change background color when hovered */
+#menu:hover {
+    -fx-background-color: #FFC125; /* New background color on hover */
+}

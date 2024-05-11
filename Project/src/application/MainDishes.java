@@ -3,6 +3,7 @@ package application;
 //5ls
 
 import java.util.*;
+
 import java.lang.Comparable;
 
 public class MainDishes extends MenuItems implements Comparable<MainDishes> {
@@ -12,7 +13,7 @@ public class MainDishes extends MenuItems implements Comparable<MainDishes> {
 	private ArrayList<MainDishes> mainDishesItems = new ArrayList<>();
 	
 	public static ArrayList<MainDishes> sortedMainDishesItems;
-
+	
 	MainDishes() {
 		
 	}
