@@ -1,5 +1,6 @@
 package application;
 	
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -52,17 +53,46 @@ public class Main extends Application {
       
 		launch(args);
 	}
+	
 	private TextField tfName = new TextField();
 	private TextField tfContactNumber = new TextField();
+	private TextField tfEmail = new TextField();
 	private Button btSubmit = new Button("Submit");
-	
+	private TextField tfNoOfSeats = new TextField();
+	private Button btTable1 = new Button("Table 1");
+	private Button btTable2 = new Button("Table 2");
+	private Button btTable3 = new Button("Table 3");
+	private Button btTable4 = new Button("Table 4");
+	private Button btTable5 = new Button("Table 5");
+	private Button btTable6 = new Button("Table 6");
+	private Button btTable7 = new Button("Table 7");
+	private Button btTable8 = new Button("Table 8");
+	private GridPane gridPane = new GridPane();
+	private Label lbl1 =new Label(null);
+	private Label lbl2 =new Label(null);
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			HBox hbox1 = new HBox(5);
+			HBox hbox2 = new HBox(5);
+			HBox hbox3 = new HBox(5);
+			HBox hbox4 = new HBox(5);
+			hbox1.getChildren().add(btTable1);
+			hbox1.getChildren().add(btTable2);
+			hbox1.setAlignment(Pos.BASELINE_RIGHT);
+			hbox2.getChildren().add(btTable3);
+			hbox2.getChildren().add(btTable4);
+			hbox3.getChildren().add(btTable5);
+			hbox3.getChildren().add(btTable6);
+			hbox3.setAlignment(Pos.BASELINE_RIGHT);
+			hbox4.getChildren().add(btTable7);
+			hbox4.getChildren().add(btTable8);
 			
-			GridPane gridPane = new GridPane();
+			
 			tfName.setPromptText("Name");
 			tfContactNumber.setPromptText("Phone Number");
+			tfEmail.setPromptText("Email");
+			tfNoOfSeats.setPromptText("Number of Seats");
 			gridPane.setPadding(new Insets(11,12,13,14));
 			gridPane.setHgap(5);
      		gridPane.setVgap(5);
@@ -71,14 +101,35 @@ public class Main extends Application {
 			gridPane.add(tfName, 1, 1);
 			gridPane.add(new Label("Contact Number:"), 0, 2);
 			gridPane.add(tfContactNumber, 1, 2);
+			gridPane.add(new Label("Email:"), 0, 3);
+			gridPane.add(tfEmail, 1, 3);
+			
 			gridPane.add(btSubmit, 1, 5);
+			gridPane.add(new Label("=============="), 0, 6);
+			gridPane.add(new Label("Choose a Table"), 0, 7);
+			gridPane.add(new Label("Number of Seats:"), 0, 8);
+			gridPane.add(tfNoOfSeats, 1, 8);
+			gridPane.add(hbox1, 0, 9);
+			gridPane.add(hbox2, 1, 9);
+			gridPane.add(hbox3, 0, 10);
+			gridPane.add(hbox4, 1, 10);
+
 			gridPane.setAlignment(Pos.TOP_LEFT);
-			tfName.setAlignment(Pos.BOTTOM_RIGHT);
-			tfContactNumber.setAlignment(Pos.BOTTOM_RIGHT);
+			tfName.setAlignment(Pos.BOTTOM_LEFT);
+			tfContactNumber.setAlignment(Pos.BOTTOM_LEFT);
+			tfNoOfSeats.setAlignment(Pos.BOTTOM_LEFT);
 			GridPane.setHalignment(btSubmit, HPos.RIGHT);
 			
+			btSubmit.setOnAction(e -> btSubmitHandler());
 			
-			
+			btTable1.setOnAction(e -> btTableHandler(0));
+			btTable2.setOnAction(e -> btTableHandler(1));
+			btTable3.setOnAction(e -> btTableHandler(2));
+			btTable4.setOnAction(e -> btTableHandler(3));
+			btTable5.setOnAction(e -> btTableHandler(4));
+			btTable6.setOnAction(e -> btTableHandler(5));
+			btTable7.setOnAction(e -> btTableHandler(6));
+			btTable8.setOnAction(e -> btTableHandler(7));
 			
 			
 			BorderPane root = new BorderPane();
@@ -186,7 +237,7 @@ public class Main extends Application {
 			sidebar.getChildren().addAll(stackPaneForMenuClk,stackPaneForMainDishesClk,stackPaneForDessertsClk,stackPaneForBeveragesClk);
 		    root.setRight(sidebar);
 			
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,500,500);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("MATHS Restaurant"); 
 			primaryStage.setScene(scene); 
@@ -208,6 +259,60 @@ public class Main extends Application {
 			
 	
 	}
+	
+	private void btSubmitHandler() {
+		
+		try {
+			
+			String name = tfName.getText();
+			String contactNumber = tfContactNumber.getText();
+			String email =tfEmail.getText();
+			Person customer=new Customer(name,contactNumber,email);
+			lbl2.setText("Data Saved");
+			lbl2.setTextFill(Color.GREEN);
+			gridPane.add(lbl2, 0, 4);
+		}
+		catch(IllegalArgumentException ex1) {
+			lbl2.setText(ex1.getMessage());
+			lbl2.setTextFill(Color.RED);
+			gridPane.add(lbl2, 0, 4);
+		}
+		catch(Exception ex2){
+			lbl2.setText("Please Enter your Data.");
+			lbl2.setTextFill(Color.RED);
+			gridPane.add(lbl2, 0, 4);
+		}
+}
+	
+	private void btTableHandler(int i) {
+		try {
+			int t = Integer.parseInt(tfNoOfSeats.getText());
+			if(t > 7) {
+				throw new IllegalArgumentException("we don't have tables with this capacity!");
+			}
+			else if (table.get(i).getIsAvailable()) {
+				lbl1.setText("Your table is ready, Bon appetit :)");
+				lbl1.setTextFill(Color.BLUE);
+				gridPane.add(lbl1, 0, 11);
+				table.get(i).setIsAvailable(false);
+			}
+			else {
+				throw new IllegalArgumentException("Sorry, this table is not available for now.");
+			}
+		}
+		catch(IllegalArgumentException Ex) {
+			lbl1.setText(Ex.getMessage());
+			lbl1.setTextFill(Color.RED);
+			gridPane.add(lbl2, 0, 11);
+		}
+		catch(Exception Ex) {
+			lbl1.setText("Enter an Integer number please.");
+			lbl1.setTextFill(Color.RED);
+			gridPane.add(lbl2, 0, 11);
+		};
+		
+	}
+	
 	DescriptionPane descriptionPaneForMainDishes = new DescriptionPane();
 	MenuItems menuItems = new MainDishes();
 

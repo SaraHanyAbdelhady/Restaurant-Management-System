@@ -16,7 +16,7 @@ public Person(String name,String contactNumber) {
 
 public Person(String name,String contactNumber,String email) {
 	
-	this.email=email;
+	setEmail(email);
 	this.name=name;
     setContactNumber(contactNumber);
 }
@@ -33,7 +33,11 @@ public abstract String identifyRole();
      }
 }
  public void setEmail(String Email) {
-		this.email=Email;
+	 if (isValidEmail(Email)==0) {
+		 this.email=Email;
+     } else {
+         throw new IllegalArgumentException("Invalid Email!");
+     }
 	}
  public String getName()
  {
@@ -49,6 +53,10 @@ public abstract String identifyRole();
  }
  private boolean isValidContactNumber(String contactNumber) {
      return contactNumber.length() == 11;
+ }
+ private int isValidEmail(String email) {
+	 String x = email.substring(email.length()-4, email.length());
+     return x.compareTo(".com");
  }
  
 }

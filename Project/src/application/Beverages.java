@@ -34,9 +34,6 @@ public void setBeverageDescription(String beverageDescription) {
 }
 
 @Override
-/*public  String  display() {
-	return "Item Name: " + super.getItemName() + "\n Price: " + super.getPrice() + "\n Rate: " + super.getRate() + "\n Description: " + getBeverageDescription();
-}*/
 public  void  display() {
     System.out.println("Item Name: " + super.getItemName() +
     					"\n Price: " + super.getPrice() + 

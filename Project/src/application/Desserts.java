@@ -29,9 +29,6 @@ public class Desserts extends MenuItems implements Comparable<Desserts> {
 	}
 	
 	@Override
-	//public  String  display() {
-	//	return "Item Name: " + super.getItemName() + "\n Price: " + super.getPrice() + "\n Rate: " + super.getRate() + "\n Description: " + getDessertDescription();
-	//}
 	public  void  display() {
         System.out.println("Item Name: " + super.getItemName() +
         					"\n Price: " + super.getPrice() + 

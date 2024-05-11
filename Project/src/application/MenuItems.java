@@ -2,7 +2,6 @@ package application;
 import java.util.*;
 
 
-//fadel display w sort w implement l comparable
 public abstract class MenuItems  {
 	
 	private String itemName;
@@ -47,8 +46,6 @@ public abstract class MenuItems  {
 	public ArrayList<MenuItems> getItems(){
 		return this.items;
 	}
-
-    //public abstract String  display(); // dih hattshal w hyt7t bdlha display 
 	public abstract void  display();  
 	
    public void setSpecialityDishes(){
