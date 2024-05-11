@@ -5,6 +5,10 @@ public class RestaurantManager extends Person {
     private MenuItems menu;
   
 	
+	public RestaurantManager() {
+		
+	}
+	
 	public RestaurantManager(String name,String num,String email) {
 		super(name,num,email);
 	}

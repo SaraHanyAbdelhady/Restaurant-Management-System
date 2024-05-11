@@ -2,12 +2,25 @@ package application;
 
 //5ls momken fadel loyalty
 public class Customer extends Person {
+	
 	private static int customerIdAdder=1;
     private int customer_ID;
     private int loyalty_points=0;
+    
+    public Customer() {}
+    
+	public Customer(String name,String num) {
+		super(name,num);
+		this.customer_ID = customerIdAdder++;
+	}
+    
+    
 	public Customer(String name,String num,String email) {
 		super(name,num,email);
 		this.customer_ID = customerIdAdder++;
+	}
+	public void setCustomerIdAdder(int customerIdAdder) {
+		Customer.customerIdAdder= customerIdAdder;
 	}
 	public void setPoints(int Points) { 
 		this.loyalty_points=Points;

@@ -5,6 +5,15 @@ private String name;
 private String contactNumber;
 private String email;
 
+public Person() {}
+
+
+public Person(String name,String contactNumber) {
+	
+	this.name=name;
+    setContactNumber(contactNumber);
+}
+
 public Person(String name,String contactNumber,String email) {
 	
 	this.email=email;
@@ -16,7 +25,7 @@ public abstract String identifyRole();
  public void setName(String name) {
 	this.name=name;
 }
- public void setContactNumber(String contactNumber) {
+ public void setContactNumber(String contactNumber)  throws IllegalArgumentException {
      if (isValidContactNumber(contactNumber)) {
          this.contactNumber = contactNumber;
      } else {

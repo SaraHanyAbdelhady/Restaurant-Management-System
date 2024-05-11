@@ -25,13 +25,14 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 
-
+//lazm n handle hna el exception elly momken yb2a thrown mn el ContactNumber
 
 public class Main extends Application {
 	static ArrayList<MainDishes> mainDishesItems = MainDishes.initMainDishes();
 	static ArrayList<Desserts> desserts = Desserts.initDesserts();
 	static ArrayList<Beverages> beverages = Beverages.initBeverages();
 	static ArrayList<Table> table = Table.initTables();
+	static ArrayList<Customer> customer;
 	public static void main(String[] args) {
 		
 		MainDishes.sort(mainDishesItems);
@@ -82,6 +83,15 @@ public class Main extends Application {
 			
 			BorderPane root = new BorderPane();
 			root.setLeft(gridPane);
+			
+			btSubmit.setOnAction(event -> {
+	            String name = tfName.getText();
+	            String contactNumber = tfContactNumber.getText();
+
+	            // Create a new Customer object
+	            Customer customer = new Customer(name, contactNumber);
+	            customer.add(customer); //msh 3arfa han3ml eh bel list dih el sara7a
+			}
 			
 			VBox sidebar = new VBox();
 			// Create a transparent Rectangle for the clickable area
@@ -188,9 +198,15 @@ public class Main extends Application {
 			
 		
 			
-					} catch(Exception e) {
-			e.printStackTrace();
+					} catch(Exception e) { //msh 3arfa a throw IllegalArgumentException 3lshan dah ta2rebn byol2ot ay exception tal3 
+						
+			e.printStackTrace(); //eh dah??
 		}
+		
+		
+		
+			
+	
 	}
 	DescriptionPane descriptionPaneForMainDishes = new DescriptionPane();
 	MenuItems menuItems = new MainDishes();

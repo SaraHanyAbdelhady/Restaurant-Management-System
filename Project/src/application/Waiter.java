@@ -16,7 +16,9 @@ public class Waiter extends Person{
 	 public void setTable(List<Table> table) {
 	        this.assignedTables = table;
 	    }
-
+	 public void setCustomerIdAdder(int waiterIdAdder) {
+			Waiter.waiterIdAdder= waiterIdAdder;
+		}
 	    public List<Table> getTables() {
 	        return this.assignedTables; 
 	    }
