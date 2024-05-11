@@ -28,23 +28,26 @@ import javafx.scene.image.ImageView;
 
 
 public class Main extends Application {
-	
+	static ArrayList<MainDishes> mainDishesItems = MainDishes.initMainDishes();
+	static ArrayList<Desserts> desserts = Desserts.initDesserts();
+	static ArrayList<Beverages> beverages = Beverages.initBeverages();
+	static ArrayList<Table> table = Table.initTables();
 	public static void main(String[] args) {
-		Table.initTables();
-        // Menu driver methods
-        
-        MainDishes.initMainDishes();
-        Desserts.initDesserts();
-        Beverages.initBeverages();
-        //try {
-        // sorted list
-        ArrayList<MainDishes> sorted = MainDishes.sortedMainDishesItems;
-        
-        /*for (MainDishes item : sorted) 
-        	item.display();
-        } catch (NullPointerException e) {
-        	
-        }*/
+		
+		MainDishes.sort(mainDishesItems);
+  	    System.out.println("Menu:");
+  	    for (MainDishes item : mainDishesItems) 
+  	      item.display();
+  	    
+  	    Desserts.sort(desserts);
+	    System.out.println("Desserts:");
+	    for (Desserts item : desserts) 
+	      item.display();
+	     
+	    Beverages.sort(beverages);
+	    System.out.println("Beverages:");
+	    for (Beverages item : beverages) 
+	      item.display();
       
 		launch(args);
 	}
@@ -191,7 +194,7 @@ public class Main extends Application {
 	}
 	DescriptionPane descriptionPaneForMainDishes = new DescriptionPane();
 	MenuItems menuItems = new MainDishes();
-	 
+
 	 private void openNewWindow() {
 	        Stage mainDishesStage = new Stage();
 	        BorderPane rootForMainDishes = new BorderPane();
@@ -205,13 +208,12 @@ public class Main extends Application {
 	        paneForComboBox.setCenter(cboForMainDishes);
 	        rootForMainDishes.setTop(paneForComboBox);
 	        cboForMainDishes.setPrefWidth(400);
-	        cboForMainDishes.setValue("Pasta");
+	        cboForMainDishes.setValue(mainDishesItems.get(0).getItemName());
 	        
 	        
-	        for(int i=0; i<menuItems.getItems().size();i++) {
-	        	if((menuItems.getItems().get(i)) instanceof MainDishes) {
-	        		MainDishesitems.add((menuItems.getItems().get(i)).getItemName());
-	        	}
+	    	
+	        for(MainDishes o:mainDishesItems) {
+	        		MainDishesitems.add(o.getItemName());
 	        }
 	         //setDisplay(0);
 	        cboForMainDishes.getItems().addAll(MainDishesitems);
@@ -227,9 +229,9 @@ public class Main extends Application {
 	    }
 	 
 	 public void setDisplay(int index) {
-		 descriptionPaneForMainDishes.setTitle((menuItems.getItems().get(index)).getItemName());
+		 descriptionPaneForMainDishes.setTitle((mainDishesItems.get(index)).getItemName());
 		 //descriptionPaneForMainDishes.setImageView((menuItems.getItems().get(index)).getImageView());
-		 descriptionPaneForMainDishes.setDescription(((MainDishes)menuItems.getItems().get(index)).getDescription());
+		 descriptionPaneForMainDishes.setDescription((mainDishesItems.get(index)).getDescription());
 		   }
 		  }
 

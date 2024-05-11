@@ -3,7 +3,7 @@ import java.util.*;
 
 
 //fadel display w sort w implement l comparable
-public abstract class MenuItems {
+public abstract class MenuItems  {
 	
 	private String itemName;
 	private double rate;
@@ -48,15 +48,21 @@ public abstract class MenuItems {
 		return this.items;
 	}
 
-    public abstract String  display(); // dih hattshal w hyt7t bdlha display 
-	//public abstract void  display();  
-   
+    //public abstract String  display(); // dih hattshal w hyt7t bdlha display 
+	public abstract void  display();  
+	
    public void setSpecialityDishes(){
 	   for(int i=0; i<items.size(); i++) {
 		   if(items.get(i).getRate()>=4.5) specialityItems.add(items.get(i));
 	   }
-   }
 	   
+   }
+
+
+   
+
+   
+  
 	   
    
    

@@ -6,7 +6,7 @@ public class Table implements Available{
 	private int tableNo;
 	private int numberOfSeats;
 	private Boolean isAvailable;
-	private ArrayList<Table> tables = new ArrayList<>(); 
+	 
 
 	public Table()
 	{
@@ -36,9 +36,7 @@ public class Table implements Available{
 	public void setIsAvailable(Boolean isAvailable) {
 		this.isAvailable = isAvailable;
 	}
-	public ArrayList<Table> getTables(){
-		return this.tables;
-	}
+	
 	@Override
 	public void available(int numberOfCustomers) //available interface method parameter type object for menuItems and Table
 	{
@@ -58,8 +56,8 @@ public class Table implements Available{
 		
 		
 	}
-public void  setTables(){
-		
+public ArrayList<Table>  setTables(){
+	 ArrayList<Table> tables = new ArrayList<>();
 		Table t1 = new Table (1,3);
 		Table t2 = new Table (2,4);
   		Table t3 = new Table (3,5);
@@ -68,22 +66,23 @@ public void  setTables(){
   		Table t6 = new Table (6,6);
   		Table t7 = new Table (7,4);
   		Table t8 = new Table (8,3);
-  		this.getTables().add(t1);
-		this.getTables().add(t2);
-		this.getTables().add(t3);
-		this.getTables().add(t4);
-		this.getTables().add(t5);
-		this.getTables().add(t6);
-		this.getTables().add(t7);
-		this.getTables().add(t8);
-		
+  		tables.add(t1);
+  		tables.add(t2);
+  		tables.add(t3);
+  		tables.add(t4);
+  		tables.add(t5);
+  		tables.add(t6);
+  		tables.add(t7);
+  		tables.add(t8);
+		return tables;
 		
 	}
 	
-	public static void initTables() {
+	public static ArrayList<Table> initTables() {
 		Table tables = new Table();
-		tables.setTables();
-	
+		return tables.setTables();
+		
+			
 	}
 
 	

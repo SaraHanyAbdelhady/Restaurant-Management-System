@@ -10,9 +10,8 @@ public class MainDishes extends MenuItems implements Comparable<MainDishes> {
 	
 	private String description;
 	
-	private ArrayList<MainDishes> mainDishesItems = new ArrayList<>();
 	
-	public static ArrayList<MainDishes> sortedMainDishesItems;
+//	public static ArrayList<MainDishes> sortedMainDishesItems;
 	
 	MainDishes() {
 		
@@ -35,19 +34,19 @@ public class MainDishes extends MenuItems implements Comparable<MainDishes> {
 	}
 	
 	@Override
-	public  String  display() {
+	//public  String  display() {
 		
-		return "Item Name: " + super.getItemName() + "\n Price: " + super.getPrice() + "\n Rate: " + super.getRate() + "\n Description: " + getDescription();
-		}
-	//public  void  display() {
-	//	for (MainDishes item : mainDishesItems) 
-    //        System.out.println("Item Name: " + item.getItemName() +
-    //        					"\n Price: " + item.getPrice() + 
-    //        					"\n Rate: " + item.getRate() + 
-    //        					"\n Description: " + item.getDescription() );
-	//}
+	//	return "Item Name: " + super.getItemName() + "\n Price: " + super.getPrice() + "\n Rate: " + super.getRate() + "\n Description: " + getDescription();
+	//	}
+	public  void  display() {
+            System.out.println("Item Name: " + super.getItemName() +
+            					"\n Price: " + super.getPrice() + 
+            					"\n Rate: " + super.getRate() + 
+            					"\n Description: " + getDescription() );
+	}
 
-	public void  setMainDishes(){
+	public ArrayList<MainDishes>  setMainDishes(){
+		ArrayList<MainDishes> mainDishesItems = new ArrayList<>();
 		
 		MenuItems specialityPasta = new MainDishes("Speciality Pasta",200,5,"Our speciality pasta dish is made from scratch starting from the homemade dough to the organic sauce made from fresh basil, thyme and olives. You can add any protein from your choice");
 		super.getItems().add(specialityPasta);
@@ -88,28 +87,29 @@ public class MainDishes extends MenuItems implements Comparable<MainDishes> {
 		MenuItems sideDishes = new MainDishes("Side dishes",65,4.2,"You can choose from french fries, sauted vegies, white rice or mashed potatoes as a side to your dish.");
 		super.getItems().add(sideDishes);	
 		mainDishesItems.add((MainDishes)sideDishes);
+		return mainDishesItems;
 	}
 	
-	public static void initMainDishes() {
+	public static ArrayList<MainDishes> initMainDishes() {
 		 MainDishes mainDishes = new MainDishes();
-			mainDishes.setMainDishes();
+			return mainDishes.setMainDishes();
 		
 	}
 	
 	   @Override 
 	   public int compareTo(MainDishes md) {
-		   if(getRate()>md.getRate()) return 1;
-		   else if (getRate()<md.getRate()) return -1;
+		   if(getRate()>md.getRate()) return -1;
+		   else if (getRate()<md.getRate()) return 1;
 		   else return 0;
 	   }
 	   
 	   // sorting 
 	   
-	   public void sort(){
-		  MainDishes[] arr1 = new MainDishes [mainDishesItems.size()];
-		  Arrays.sort(mainDishesItems.toArray(arr1));
-		  sortedMainDishesItems = new ArrayList<>(Arrays.asList(arr1));
-		 //Collections.sort(mainDishesItems);
+	   public static void sort(ArrayList<MainDishes> mainDishesItems){
+		  //MainDishes[] arr1 = new MainDishes [mainDishesItems.size()];
+		  //Arrays.sort(mainDishesItems.toArray(arr1));
+		  //sortedMainDishesItems = new ArrayList<>(Arrays.asList(arr1));
+		 Collections.sort(mainDishesItems);
 		 //sortedMainDishesItems = mainDishesItems;
 
 	   }
