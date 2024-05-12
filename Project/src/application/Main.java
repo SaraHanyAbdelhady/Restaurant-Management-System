@@ -141,8 +141,8 @@ public class Main extends Application {
 
 	            // Create a new Customer object
 	            Customer customer = new Customer(name, contactNumber);
-	            customer.add(customer); //msh 3arfa han3ml eh bel list dih el sara7a
-			}
+	            //customer.add(customer); //msh 3arfa han3ml eh bel list dih el sara7a
+			});
 			
 			VBox sidebar = new VBox();
 			// Create a transparent Rectangle for the clickable area
@@ -229,8 +229,20 @@ public class Main extends Application {
 			
 			mainDishesclk.setOnMouseClicked(event -> {
 			    // Handle the click action here
-				menuclk.setCursor(Cursor.HAND);
-				openNewWindow();
+				mainDishesclk.setCursor(Cursor.HAND);
+				openNewWindowForMainDishes();
+			});
+			
+			dessertsclk.setOnMouseClicked(event -> {
+			    // Handle the click action here
+				dessertsclk.setCursor(Cursor.HAND);
+				openNewWindowForDesserts();
+			});
+			
+			beveragesclk.setOnMouseClicked(event -> {
+			    // Handle the click action here
+				beveragesclk.setCursor(Cursor.HAND);
+				openNewWindowForBeverages();
 			});
 
 			// Add the Rectangle to your sidebar (VBox)
@@ -315,8 +327,10 @@ public class Main extends Application {
 	
 	DescriptionPane descriptionPaneForMainDishes = new DescriptionPane();
 	MenuItems menuItems = new MainDishes();
+	DescriptionPane descriptionPaneForDesserts = new DescriptionPane();
+	DescriptionPane descriptionPaneForBeverages = new DescriptionPane();
 
-	 private void openNewWindow() {
+	 private void openNewWindowForMainDishes() {
 	        Stage mainDishesStage = new Stage();
 	        BorderPane rootForMainDishes = new BorderPane();
 	        ObservableList<String> MainDishesitems =
@@ -339,7 +353,7 @@ public class Main extends Application {
 	         //setDisplay(0);
 	        cboForMainDishes.getItems().addAll(MainDishesitems);
 	        rootForMainDishes.setLeft(descriptionPaneForMainDishes);
-	        cboForMainDishes.setOnAction(e -> setDisplay(MainDishesitems.indexOf(cboForMainDishes.getValue())));
+	        cboForMainDishes.setOnAction(e -> setDisplayForMainDishes(MainDishesitems.indexOf(cboForMainDishes.getValue())));
 	        
 	        
 	        // Add content to the new window
@@ -349,10 +363,90 @@ public class Main extends Application {
 	        mainDishesStage.show();
 	    }
 	 
-	 public void setDisplay(int index) {
+	 public void setDisplayForMainDishes(int index) {
 		 descriptionPaneForMainDishes.setTitle((mainDishesItems.get(index)).getItemName());
 		 //descriptionPaneForMainDishes.setImageView((menuItems.getItems().get(index)).getImageView());
 		 descriptionPaneForMainDishes.setDescription((mainDishesItems.get(index)).getDescription());
+		   }
+	 
+	 
+	 
+	 private void openNewWindowForDesserts() {
+	        Stage DessertsStage = new Stage();
+	        BorderPane rootForDesserts = new BorderPane();
+	        ObservableList<String> dessertsitems =
+	        FXCollections.observableArrayList();
+	        
+	        
+	        BorderPane paneForComboBoxForDesserts = new BorderPane();
+	        paneForComboBoxForDesserts.setLeft(new Label("Select a dessert: "));
+	        ComboBox<String> cboForDesserts = new ComboBox<>();
+	        paneForComboBoxForDesserts.setCenter(cboForDesserts);
+	        rootForDesserts.setTop(paneForComboBoxForDesserts);
+	        cboForDesserts.setPrefWidth(400);
+	        cboForDesserts.setValue(desserts.get(0).getItemName());
+	        
+	        
+	    	
+	        for(Desserts o:desserts) {
+	        		dessertsitems.add(o.getItemName());
+	        }
+	         //setDisplay(0);
+	        cboForDesserts.getItems().addAll(dessertsitems);
+	        rootForDesserts.setLeft(descriptionPaneForDesserts);
+	        cboForDesserts.setOnAction(e -> setDisplayForDesserts(dessertsitems.indexOf(cboForDesserts.getValue())));
+	        
+	        
+	        // Add content to the new window
+	        Scene newScene = new Scene(rootForDesserts , 300, 150);
+	        DessertsStage.setScene(newScene);
+	        DessertsStage.setTitle("Desserts");
+	        DessertsStage.show();
+	    }
+	 
+	 public void setDisplayForDesserts(int index) {
+		 descriptionPaneForDesserts.setTitle((desserts.get(index)).getItemName());
+		 //descriptionPaneForMainDishes.setImageView((menuItems.getItems().get(index)).getImageView());
+		 descriptionPaneForDesserts.setDescription((desserts.get(index)).getDessertDescription());
+		   }
+	 
+	 private void openNewWindowForBeverages() {
+	        Stage beveragesStage = new Stage();
+	        BorderPane rootForbeverages = new BorderPane();
+	        ObservableList<String> beveragesitems =
+	        FXCollections.observableArrayList();
+	        
+	        
+	        BorderPane paneForComboBoxForBeverages = new BorderPane();
+	        paneForComboBoxForBeverages.setLeft(new Label("Select a drink: "));
+	        ComboBox<String> cboForBeverages = new ComboBox<>();
+	        paneForComboBoxForBeverages.setCenter(cboForBeverages);
+	        rootForbeverages.setTop(paneForComboBoxForBeverages);
+	        cboForBeverages.setPrefWidth(400);
+	        cboForBeverages.setValue(beverages.get(0).getItemName());
+	        
+	        
+	    	
+	        for(Beverages o:beverages) {
+	        		beveragesitems.add(o.getItemName());
+	        }
+	         //setDisplay(0);
+	        cboForBeverages.getItems().addAll(beveragesitems);
+	        rootForbeverages.setLeft(descriptionPaneForBeverages);
+	        cboForBeverages.setOnAction(e -> setDisplayForBeverages(beveragesitems.indexOf(cboForBeverages.getValue())));
+	        
+	        
+	        // Add content to the new window
+	        Scene newScene = new Scene(rootForbeverages , 300, 150);
+	        beveragesStage.setScene(newScene);
+	        beveragesStage.setTitle("Beverages");
+	        beveragesStage.show();
+	    }
+	 
+	 public void setDisplayForBeverages(int index) {
+		 descriptionPaneForBeverages.setTitle((beverages.get(index)).getItemName());
+		 //descriptionPaneForMainDishes.setImageView((menuItems.getItems().get(index)).getImageView());
+		 descriptionPaneForBeverages.setDescription((beverages.get(index)).getBeverageDescription());
 		   }
 		  }
 
