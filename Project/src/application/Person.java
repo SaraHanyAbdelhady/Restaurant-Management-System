@@ -33,7 +33,7 @@ public abstract String identifyRole();
      }
 }
  public void setEmail(String Email) {
-	 if (isValidEmail(Email)==0) {
+	 if (isValidEmail(Email)) {
 		 this.email=Email;
      } else {
          throw new IllegalArgumentException("Invalid Email!");
@@ -54,9 +54,19 @@ public abstract String identifyRole();
  private boolean isValidContactNumber(String contactNumber) {
      return contactNumber.length() == 11;
  }
- private int isValidEmail(String email) {
+ private boolean isValidEmail(String email) {
 	 String x = email.substring(email.length()-4, email.length());
-     return x.compareTo(".com");
+	 if(x.compareTo(".com")==0) {
+		 for(int i=0;i<email.length()-4;) 
+			 {
+				 if (email.contains("@")) {
+					
+					 return true;
+					 }
+				 else return false;
+			 }
+	 }
+	return false; 
  }
  
 }

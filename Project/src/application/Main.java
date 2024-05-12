@@ -1,6 +1,5 @@
 package application;
 	
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -135,14 +134,14 @@ public class Main extends Application {
 			BorderPane root = new BorderPane();
 			root.setLeft(gridPane);
 			
-			btSubmit.setOnAction(event -> {
+			/*btSubmit.setOnAction(event -> {
 	            String name = tfName.getText();
 	            String contactNumber = tfContactNumber.getText();
 
 	            // Create a new Customer object
 	            Customer customer = new Customer(name, contactNumber);
 	            //customer.add(customer); //msh 3arfa han3ml eh bel list dih el sara7a
-			});
+			});*/
 			
 			VBox sidebar = new VBox();
 			// Create a transparent Rectangle for the clickable area
