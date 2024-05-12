@@ -328,6 +328,10 @@ public class Main extends Application {
 	MenuItems menuItems = new MainDishes();
 	DescriptionPane descriptionPaneForDesserts = new DescriptionPane();
 	DescriptionPane descriptionPaneForBeverages = new DescriptionPane();
+	
+	ImageView[] mainDishesImages = {new ImageView("file:src/Images/specialityPasta.jpeg"),new ImageView("file:src/Images/specialityPizza.jpeg"),new ImageView("file:src/Images/specialitySandwich.jpeg"),new ImageView("file:src/Images/risotto.jpeg"),new ImageView("file:src/Images/hamburger.jpeg"),new ImageView("file:src/Images/steak.jpeg"),new ImageView("file:src/Images/chicken.jpeg"),new ImageView("file:src/Images/Lasagna.jpeg"),new ImageView("file:src/Images/ravioli.jpeg"),new ImageView("file:src/Images/sidedishes.jpeg")};
+	//ImageView[] dessertsImages = {};
+	//ImageView[] beveragesImages = {};
 
 	 private void openNewWindowForMainDishes() {
 	        Stage mainDishesStage = new Stage();
@@ -349,7 +353,7 @@ public class Main extends Application {
 	        for(MainDishes o:mainDishesItems) {
 	        		MainDishesitems.add(o.getItemName());
 	        }
-	         //setDisplay(0);
+	         //setDisplayForMainDishes(0);
 	        cboForMainDishes.getItems().addAll(MainDishesitems);
 	        rootForMainDishes.setLeft(descriptionPaneForMainDishes);
 	        cboForMainDishes.setOnAction(e -> setDisplayForMainDishes(MainDishesitems.indexOf(cboForMainDishes.getValue())));
@@ -364,7 +368,7 @@ public class Main extends Application {
 	 
 	 public void setDisplayForMainDishes(int index) {
 		 descriptionPaneForMainDishes.setTitle((mainDishesItems.get(index)).getItemName());
-		 //descriptionPaneForMainDishes.setImageView((menuItems.getItems().get(index)).getImageView());
+		 descriptionPaneForMainDishes.setImageView(mainDishesImages[index]);
 		 descriptionPaneForMainDishes.setDescription((mainDishesItems.get(index)).getDescription());
 		   }
 	 
@@ -405,7 +409,7 @@ public class Main extends Application {
 	 
 	 public void setDisplayForDesserts(int index) {
 		 descriptionPaneForDesserts.setTitle((desserts.get(index)).getItemName());
-		 //descriptionPaneForMainDishes.setImageView((menuItems.getItems().get(index)).getImageView());
+		 //descriptionPaneForMainDishes.setImageView((desserts.get(index)).getImageView());
 		 descriptionPaneForDesserts.setDescription((desserts.get(index)).getDessertDescription());
 		   }
 	 
@@ -443,8 +447,9 @@ public class Main extends Application {
 	    }
 	 
 	 public void setDisplayForBeverages(int index) {
+		 
 		 descriptionPaneForBeverages.setTitle((beverages.get(index)).getItemName());
-		 //descriptionPaneForMainDishes.setImageView((menuItems.getItems().get(index)).getImageView());
+		 //descriptionPaneForBeverages.setImageView(((beverages.get(index)).getItemName().concat("jpeg")).getImageView());
 		 descriptionPaneForBeverages.setDescription((beverages.get(index)).getBeverageDescription());
 		   }
 		  }
