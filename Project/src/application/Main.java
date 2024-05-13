@@ -3,9 +3,8 @@ package application;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
+
 import javafx.application.Application;
-import javafx.geometry.HPos;
-import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.*;
@@ -151,6 +150,13 @@ public class Main extends Application {
 			menuclk.setId("menu");
 			menuclk.setLayoutX(50);
 	        menuclk.setLayoutY(100);
+	        
+	        //Payment GUI
+	        Button cashButton= new Button("Cash");
+			Button creditButton= new Button("Credit");
+			VBox vBoxForPayment= new VBox(15);
+			vBoxForPayment.setPadding(new Insets(15,5,5,5));
+			vBoxForPayment.getChildren().addAll(cashButton,creditButton);
 			
 			Rectangle mainDishesclk = new Rectangle(100, 30);
 			mainDishesclk.setFill(Color.TRANSPARENT); // Transparent fill
@@ -182,11 +188,13 @@ public class Main extends Application {
 			StackPane stackPaneForMainDishesClk = new StackPane();
 			StackPane stackPaneForDessertsClk = new StackPane();
 			StackPane stackPaneForBeveragesClk = new StackPane();
+			
 			// Create a Text node for the label
 	        Text menuTxt = new Text("Menu");
 	        menuTxt.setFont(Font.font(14)); // Set font size (optional)
 	        menuTxt.setX(10); // Adjust label position (optional)
 	        menuTxt.setY(20);
+	        
 	        
 	        Text mainDishesTxt = new Text("Main Dishes");
 	        mainDishesTxt.setFont(Font.font(14)); // Set font size (optional)
@@ -212,7 +220,7 @@ public class Main extends Application {
 	        stackPaneForMainDishesClk.getChildren().addAll(mainDishesclk,mainDishesTxt);
 	        stackPaneForDessertsClk.getChildren().addAll(dessertsclk,dessertsTxt);
 	        stackPaneForBeveragesClk.getChildren().addAll(beveragesclk,beveragesTxt);
-
+	        
 
 			// Attach a click event handler
 			menuclk.setOnMouseClicked(event -> {
@@ -243,10 +251,18 @@ public class Main extends Application {
 				beveragesclk.setCursor(Cursor.HAND);
 				openNewWindowForBeverages();
 			});
+			
+			  cashButton.setOnAction(e->{
+				  openNewWindowForCash();});
+			    creditButton.setOnAction(e->{
+			    	openNewWindowForCredit();
+			    	});
 
 			// Add the Rectangle to your sidebar (VBox)
 			sidebar.getChildren().addAll(stackPaneForMenuClk,stackPaneForMainDishesClk,stackPaneForDessertsClk,stackPaneForBeveragesClk);
 		    root.setRight(sidebar);
+		    root.setCenter(vBoxForPayment);
+		  
 			
 			Scene scene = new Scene(root,500,500);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -336,7 +352,8 @@ public class Main extends Application {
 	MenuItems menuItems = new MainDishes();
 	DescriptionPane descriptionPaneForDesserts = new DescriptionPane();
 	DescriptionPane descriptionPaneForBeverages = new DescriptionPane();
-	
+	Order order1= new Order();
+	 
 	ImageView[] mainDishesImages = {new ImageView("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDEZc07zKAt_n4Tr5pO0A3Zlm7qku6teohdF61KAP8jA&s"),
 			new ImageView("https://th.bing.com/th/id/OIP.-Wvf_yJfzlrGMUn5gIMvfgHaFj?w=255&h=191&c=7&r=0&o=5&dpr=1.3&pid=1.7"),
 			new ImageView("https://th.bing.com/th/id/OIP.ZDp2I-3jp5jL96RUfNu6zgHaHa?w=197&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7"),
@@ -370,6 +387,7 @@ public class Main extends Application {
 	        BorderPane rootForMainDishes = new BorderPane();
 	        ObservableList<String> MainDishesitems =
 	        FXCollections.observableArrayList();
+	        Button addToCart1 = new Button("Add to cart");
 	        
 	        
 	        BorderPane paneForComboBox = new BorderPane();
@@ -377,8 +395,15 @@ public class Main extends Application {
 	        ComboBox<String> cboForMainDishes = new ComboBox<>();
 	        paneForComboBox.setCenter(cboForMainDishes);
 	        rootForMainDishes.setTop(paneForComboBox);
+	        rootForMainDishes.setRight(addToCart1);
 	        cboForMainDishes.setPrefWidth(400);
 	        cboForMainDishes.setValue(mainDishesItems.get(0).getItemName());
+	        
+	        ////////////////////////////////////////////////////////////
+	        addToCart1.setOnAction(e->{
+	        	order1.addItem(mainDishesItems.get(MainDishesitems.indexOf(cboForMainDishes.getValue())));
+	        	System.out.println((mainDishesItems.get(MainDishesitems.indexOf(cboForMainDishes.getValue()))).getItemName());
+	        });
 	        
 	        
 	    	
@@ -411,6 +436,7 @@ public class Main extends Application {
 	        BorderPane rootForDesserts = new BorderPane();
 	        ObservableList<String> dessertsitems =
 	        FXCollections.observableArrayList();
+	        Button addToCart2 = new Button("Add to cart");
 	        
 	        
 	        BorderPane paneForComboBoxForDesserts = new BorderPane();
@@ -418,6 +444,7 @@ public class Main extends Application {
 	        ComboBox<String> cboForDesserts = new ComboBox<>();
 	        paneForComboBoxForDesserts.setCenter(cboForDesserts);
 	        rootForDesserts.setTop(paneForComboBoxForDesserts);
+	        rootForDesserts.setRight(addToCart2);
 	        cboForDesserts.setPrefWidth(400);
 	        cboForDesserts.setValue(desserts.get(0).getItemName());
 	        
@@ -431,7 +458,10 @@ public class Main extends Application {
 	        rootForDesserts.setLeft(descriptionPaneForDesserts);
 	        cboForDesserts.setOnAction(e -> setDisplayForDesserts(dessertsitems.indexOf(cboForDesserts.getValue())));
 	        
-	        
+	        addToCart2.setOnAction(e->{
+	        	order1.addItem(desserts.get(dessertsitems.indexOf(cboForDesserts.getValue())));
+	        	System.out.println((desserts.get(dessertsitems.indexOf(cboForDesserts.getValue()))).getItemName());
+	        });
 	        // Add content to the new window
 	        Scene newScene = new Scene(rootForDesserts , 300, 150);
 	        DessertsStage.setScene(newScene);
@@ -450,6 +480,7 @@ public class Main extends Application {
 	        BorderPane rootForbeverages = new BorderPane();
 	        ObservableList<String> beveragesitems =
 	        FXCollections.observableArrayList();
+	        Button addToCart3 = new Button("Add to cart");
 	        
 	        
 	        BorderPane paneForComboBoxForBeverages = new BorderPane();
@@ -457,6 +488,7 @@ public class Main extends Application {
 	        ComboBox<String> cboForBeverages = new ComboBox<>();
 	        paneForComboBoxForBeverages.setCenter(cboForBeverages);
 	        rootForbeverages.setTop(paneForComboBoxForBeverages);
+	        rootForbeverages.setRight(addToCart3);
 	        cboForBeverages.setPrefWidth(400);
 	        cboForBeverages.setValue(beverages.get(0).getItemName());
 	        
@@ -470,6 +502,10 @@ public class Main extends Application {
 	        rootForbeverages.setLeft(descriptionPaneForBeverages);
 	        cboForBeverages.setOnAction(e -> setDisplayForBeverages(beveragesitems.indexOf(cboForBeverages.getValue())));
 	        
+	        addToCart3.setOnAction(e->{
+	        	order1.addItem(beverages.get(beveragesitems.indexOf(cboForBeverages.getValue())));
+	        	System.out.println((beverages.get(beveragesitems.indexOf(cboForBeverages.getValue()))).getItemName());
+	        });
 	        
 	        // Add content to the new window
 	        Scene newScene = new Scene(rootForbeverages , 300, 150);
@@ -484,6 +520,33 @@ public class Main extends Application {
 		 descriptionPaneForBeverages.setImageView(beveragesImages[index]);
 		 descriptionPaneForBeverages.setDescription((beverages.get(index)).getBeverageDescription());
 		   }
+	 
+	 public void openNewWindowForCash(){
+		 Stage cashStage = new Stage();
+		 BorderPane borderPaneForCash = new BorderPane();
+		 borderPaneForCash.setCenter(new Label("your bill value is " + order1.getOrderPrice()));
+		 
+		 Scene newSceneForCash = new Scene(borderPaneForCash, 300, 150);
+		 cashStage.setScene(newSceneForCash);
+		 cashStage.setTitle("Cash");
+		 cashStage.show();
+		 
+		 
+	 }
+	 
+	 public void openNewWindowForCredit(){
+		 Stage creditStage = new Stage();
+		 BorderPane borderPaneForCredit = new BorderPane();
+		 borderPaneForCredit.setCenter(new Label("your bill value is " + (order1.getOrderPrice()+order1.getOrderPrice()*0.01)));
+		 
+		 Scene newSceneForCash = new Scene(borderPaneForCredit, 300, 150);
+		 creditStage.setScene(newSceneForCash);
+		 creditStage.setTitle("Credit");
+		 creditStage.show();
+		 
+	 }
+	 
+	
 		  }
 
 	

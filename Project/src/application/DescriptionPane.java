@@ -1,6 +1,7 @@
 package application;
 
 import javafx.geometry.Insets;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.ScrollPane;
@@ -8,10 +9,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
+import javafx.scene.control.Button;
 
 public class DescriptionPane extends BorderPane {
 /** Label for displaying an image and a title */
 private Label lblImageTitle = new Label();
+
 
 /** Text area for displaying text */
 private TextArea taDescription = new TextArea();
@@ -35,6 +38,7 @@ ScrollPane scrollPane = new ScrollPane(taDescription);
      setLeft(lblImageTitle);
      setCenter(scrollPane);
      setPadding(new Insets(5, 5, 5, 5));
+    
    }
 /** Set the title */
 public void setTitle(String title) {
@@ -49,4 +53,5 @@ public void setTitle(String title) {
  public void setDescription(String text) {
      taDescription.setText(text);
     }
+
   }
