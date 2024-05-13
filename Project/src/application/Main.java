@@ -348,8 +348,15 @@ public class Main extends Application {
 			new ImageView("https://th.bing.com/th/id/OIP.nVtdHugFbL-495WwLmVQSQAAAA?w=206&h=207&c=7&r=0&o=5&dpr=1.3&pid=1.7"),
 			
 			new ImageView("https://th.bing.com/th/id/OIP.ldIPmvKM9IyNQ-7bcXj5zgHaE8?w=236&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7")};
-	//ImageView[] beveragesImages = {};
-
+	
+	ImageView[] beveragesImages = {
+			new ImageView("https://th.bing.com/th/id/OIP.nagOtI5OUi7q_coL3AdAPQHaFj?pid=ImgDet&w=178&h=133&c=7&dpr=1.3"),
+	
+	new ImageView("https://th.bing.com/th/id/OIP.pQyo-W83jaTAHfsFSCl3ZAAAAA?pid=ImgDet&w=178&h=178&c=7&dpr=1.3"),
+	new ImageView("https://th.bing.com/th/id/OIP.cjMbWlh35paOTq9eA6OP7AHaE8?w=285&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7"),
+	new ImageView("https://th.bing.com/th/id/OIP.BbLY_ShrQ6B-o1KacDC1dAAAAA?w=115&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"),
+	new ImageView("https://th.bing.com/th/id/OIP.6l5rYj84mvBR65m4bslrGwAAAA?w=268&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7"),
+	new ImageView("https://th.bing.com/th/id/OIP.jO4oPaaPoe0C7wVt1F40aQHaEJ?pid=ImgDet&w=178&h=99&c=7&dpr=1.3")};
 	 private void openNewWindowForMainDishes() {
 	        Stage mainDishesStage = new Stage();
 	        BorderPane rootForMainDishes = new BorderPane();
@@ -384,7 +391,7 @@ public class Main extends Application {
 	    }
 	 
 	 public void setDisplayForMainDishes(int index) {
-		 descriptionPaneForMainDishes.setTitle((mainDishesItems.get(index)).getItemName());
+		 descriptionPaneForMainDishes.setTitle(Double.toString(mainDishesItems.get(index).getPrice()));
 		 descriptionPaneForMainDishes.setImageView(mainDishesImages[index]);
 		 descriptionPaneForMainDishes.setDescription((mainDishesItems.get(index)).getDescription());
 		   }
@@ -425,7 +432,7 @@ public class Main extends Application {
 	    }
 	 
 	 public void setDisplayForDesserts(int index) {
-		 descriptionPaneForDesserts.setTitle((desserts.get(index)).getItemName());
+		 descriptionPaneForDesserts.setTitle(Double.toString(desserts.get(index).getPrice()));
 		 descriptionPaneForDesserts.setImageView(dessertsImages[index]);
 		 descriptionPaneForDesserts.setDescription((desserts.get(index)).getDessertDescription());
 		   }
@@ -450,7 +457,7 @@ public class Main extends Application {
 	        for(Beverages o:beverages) {
 	        		beveragesitems.add(o.getItemName());
 	        }
-	         //setDisplay(0);
+	         setDisplayForBeverages(0);
 	        cboForBeverages.getItems().addAll(beveragesitems);
 	        rootForbeverages.setLeft(descriptionPaneForBeverages);
 	        cboForBeverages.setOnAction(e -> setDisplayForBeverages(beveragesitems.indexOf(cboForBeverages.getValue())));
@@ -465,8 +472,8 @@ public class Main extends Application {
 	 
 	 public void setDisplayForBeverages(int index) {
 		 
-		 descriptionPaneForBeverages.setTitle((beverages.get(index)).getItemName());
-		 //descriptionPaneForBeverages.setImageView(((beverages.get(index)).getItemName().concat("jpeg")).getImageView());
+		 descriptionPaneForBeverages.setTitle(Double.toString(beverages.get(index).getPrice()));
+		 descriptionPaneForBeverages.setImageView(beveragesImages[index]);
 		 descriptionPaneForBeverages.setDescription((beverages.get(index)).getBeverageDescription());
 		   }
 		  }
