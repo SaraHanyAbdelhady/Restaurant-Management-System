@@ -59,7 +59,7 @@ public class Table implements Available{
 public ArrayList<Table>  setTables(){
 	 ArrayList<Table> tables = new ArrayList<>();
 		Table t1 = new Table (1,3);
-		Table t2 = new Table (2,4);
+		Table t2 = new Table (2,7);
   		Table t3 = new Table (3,5);
   		Table t4 = new Table (4,7);
   		Table t5 = new Table (5,5);

@@ -315,10 +315,10 @@ public class Main extends Application {
 		try {
 			int t = Integer.parseInt(tfNoOfSeats.getText());
 			if(t > 7) {
-				throw new IllegalArgumentException("we don't have tables with this capacity!");
+				throw new InputMismatchException("we don't have tables with this capacity!");
 			}
 			else if(t > table.get(i).getNumberOfSeats()) {
-				throw new IllegalArgumentException("Sorry, this table does not have enough chairs for you, Choose another table.");
+				throw new InputMismatchException("Sorry, this table does not have enough chairs for you, Choose another table.");
 			}
 			else if (table.get(i).getIsAvailable()) {
 				lbl1.setText("Your table is ready, Bon appetit :)");
@@ -327,15 +327,15 @@ public class Main extends Application {
 				table.get(i).setIsAvailable(false);
 			}
 			else {
-				throw new IllegalArgumentException("Sorry, this table is not available for now.");
+				throw new InputMismatchException("Sorry, this table is not available for now.");
 			}
 		}
-		catch(IllegalArgumentException Ex) {
+		catch(InputMismatchException Ex) {
 			lbl1.setText(Ex.getMessage());
 			lbl1.setTextFill(Color.RED);
 			gridPane.add(lbl2, 0, 11);
 		}
-		catch(InputMismatchException Ex) {
+		catch(IllegalArgumentException Ex) {
 			lbl1.setText("Enter an Integer number please.");
 			lbl1.setTextFill(Color.RED);
 			gridPane.add(lbl2, 0, 11);
