@@ -1,7 +1,7 @@
 package application;
 	
 import java.util.ArrayList;
-
+import java.util.InputMismatchException;
 
 import javafx.application.Application;
 import javafx.geometry.HPos;
@@ -301,6 +301,9 @@ public class Main extends Application {
 			if(t > 7) {
 				throw new IllegalArgumentException("we don't have tables with this capacity!");
 			}
+			else if(t > table.get(i).getNumberOfSeats()) {
+				throw new IllegalArgumentException("Sorry, this table does not have enough chairs for you, Choose another table.");
+			}
 			else if (table.get(i).getIsAvailable()) {
 				lbl1.setText("Your table is ready, Bon appetit :)");
 				lbl1.setTextFill(Color.BLUE);
@@ -316,8 +319,13 @@ public class Main extends Application {
 			lbl1.setTextFill(Color.RED);
 			gridPane.add(lbl2, 0, 11);
 		}
-		catch(Exception Ex) {
+		catch(InputMismatchException Ex) {
 			lbl1.setText("Enter an Integer number please.");
+			lbl1.setTextFill(Color.RED);
+			gridPane.add(lbl2, 0, 11);
+		}
+		catch(Exception Ex) {
+			lbl1.setText("Enter Number of Seats please.");
 			lbl1.setTextFill(Color.RED);
 			gridPane.add(lbl2, 0, 11);
 		};
