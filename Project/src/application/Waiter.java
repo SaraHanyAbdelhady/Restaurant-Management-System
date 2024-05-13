@@ -1,6 +1,6 @@
 package application;
 import java.util.List;
-//process payment
+
 public class Waiter extends Person{
 	private static int waiterIdAdder=1;
 	private int employeeId;
