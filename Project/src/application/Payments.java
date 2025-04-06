@@ -1,7 +1,7 @@
-package application;
+package Project.src.application;
 
 
-import javafx.application.Application;
+/*import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,11 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.stage.Stage;*/
 
 public class Payments {
 	
-	private double billValue;
+	//private double billValue;
 	
 
 

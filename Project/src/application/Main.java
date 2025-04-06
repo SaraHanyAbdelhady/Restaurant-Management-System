@@ -1,4 +1,4 @@
-package application;
+package Project.src.application;
 	
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -15,9 +15,9 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
-import javafx.scene.shape.Circle;
+/*import javafx.scene.shape.Circle;
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;*/
 import javafx.geometry.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -295,6 +295,7 @@ public class Main extends Application {
 			String contactNumber = tfContactNumber.getText();
 			String email =tfEmail.getText();
 			Person customer=new Customer(name,contactNumber,email);
+			//System.out.print(customer.getName());
 			lbl2.setText("Data Saved");
 			lbl2.setTextFill(Color.GREEN);
 			gridPane.add(lbl2, 0, 4);
@@ -333,17 +334,17 @@ public class Main extends Application {
 		catch(InputMismatchException Ex) {
 			lbl1.setText(Ex.getMessage());
 			lbl1.setTextFill(Color.RED);
-			gridPane.add(lbl2, 0, 11);
+			gridPane.add(lbl1, 0, 11);
 		}
 		catch(IllegalArgumentException Ex) {
 			lbl1.setText("Enter an Integer number please.");
 			lbl1.setTextFill(Color.RED);
-			gridPane.add(lbl2, 0, 11);
+			gridPane.add(lbl1, 0, 11);
 		}
 		catch(Exception Ex) {
 			lbl1.setText("Enter Number of Seats please.");
 			lbl1.setTextFill(Color.RED);
-			gridPane.add(lbl2, 0, 11);
+			gridPane.add(lbl1, 0, 11);
 		};
 		
 	}

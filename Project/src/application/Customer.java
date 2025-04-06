@@ -1,4 +1,4 @@
-package application;
+package Project.src.application;
 
 
 public class Customer extends Person {

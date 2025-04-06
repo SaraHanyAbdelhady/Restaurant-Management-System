@@ -1,4 +1,4 @@
-package application;
+package Project.src.application;
 //5ls
 public abstract class Person {
 private String name;

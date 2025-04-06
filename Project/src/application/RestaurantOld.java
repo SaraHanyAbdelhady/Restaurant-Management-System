@@ -1,4 +1,4 @@
-package application;
+package Project.src.application;
 //import java.util.ArrayList;
 
 public class RestaurantOld {

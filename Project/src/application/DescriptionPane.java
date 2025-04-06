@@ -1,4 +1,4 @@
-package application;
+package Project.src.application;
 
 import javafx.geometry.Insets;
 
@@ -9,7 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
-import javafx.scene.control.Button;
+//import javafx.scene.control.Button;
 
 public class DescriptionPane extends BorderPane {
 /** Label for displaying an image and a title */
